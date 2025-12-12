@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件共享服务</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>文件共享服务</h1>
+        
+        <div class="path-navigation">
+            <a href="/">首页</a>
+            {% for part in current_path.split('/') %}
+                {% if part %}
+                    / <a href="/browse/{{ '/'.join(current_path.split('/')[:loop.index]) }}">{{ part }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <input type="hidden" name="current_path" value="{{ current_path }}">
+            <button type="submit">上传文件</button>
+        </form>
+
+        <h2>当前目录内容</h2>
+        <ul class="file-list">
+            {% if current_path %}
+            <li>
+                <a href="/browse/{{ parent_path }}" class="folder-link">↑ 返回上级</a>
+            </li>
+            {% endif %}
+            
+            {% for item in items %}
+            <li>
+                {% if item.is_dir %}
+                    <span class="folder-icon">📁</span>
+                    <a href="/browse/{{ item.path }}" class="folder-link">{{ item.name }}</a>
+                    <a href="/download_folder/{{ item.path }}" class="download-btn">下载文件夹</a>
+                {% else %}
+                    <span class="file-icon">📄</span>
+                    <a href="/download/{{ item.path }}" class="file-link">{{ item.name }}</a>
+                {% endif %}
+                <span class="file-meta">{{ item.modified.strftime('%Y-%m-%d %H:%M') }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

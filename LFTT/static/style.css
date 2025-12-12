@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.path-navigation {
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.path-navigation a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.path-navigation a:hover {
+    text-decoration: underline;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+}
+
+.file-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.folder-icon, .file-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.folder-link {
+    color: #0066cc;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.folder-link:hover {
+    text-decoration: underline;
+}
+
+.file-link {
+    color: #333;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+}
+
+.download-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background: #45a049;
+}
+
+.file-meta {
+    color: #666;
+    font-size: 0.9em;
+    margin-left: 15px;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+button {
+    background: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0055aa;
+}
